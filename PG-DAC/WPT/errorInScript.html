@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error</title>
+     <style>
+        #demo-dom{
+            margin: 20px 0;
+            padding: 10px;
+            background-color: rgb(240, 240, 240);
+        }
+
+        button{
+            background-color: rgb(83, 83, 246);
+            padding: 10px;
+            color: white;
+            font-weight: bold;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover{
+            background-color: rgb(1, 1, 1);
+         
+        }
+        #click{
+            margin: 5px ;
+        }
+
+        #error{
+        color: red;
+        font-size: 14px;
+        }
+
+        #success{
+        color: rgb(43, 251, 2);
+        font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Error Handling</h1>
+    <p>All about <br><code>try{}<br>catch{}</code></p>
+
+    <div id="demo-dom">
+        <button onclick="checkSyntaxError()">Check Syntax Error</button>
+        <button onclick="checkReference()">Check Reference Error</button>
+        <button onclick="checkTypeError()">check Type Error</button>
+        <button onclick="tryCatch()">Do Try Catch</button>
+        <button onclick="customError()">Check Custom Error</button>
+
+        <br>    
+        <div id="error-block"></div>
+        <div id="finally"></div>
+    </div>
+
+    <script>
+        function checkSyntaxError(){
+            document.getElementById("error-block").innerHTML=`<span id="error" style="font-weight:bold">Syntax Error:There is a syntax error(string)</span>`;
+        }
+
+        function checkReference(){
+            try{
+                // let variable=10;
+                console.log(undefined_variable);
+                 document.getElementById("error-block").innerHTML=`<span id="success" style="font-weight:bold">No error</span>`;
+            }
+            catch(err){
+                 document.getElementById("error-block").innerHTML=`<span id="error" style="font-weight:bold">Reference Error:The undefined_variable is undefined</span>`;
+            }
+        }
+
+        
+          function checkTypeError(){
+            try{
+               let num="cdac";
+                num.toUpperCase(); //type error;
+                 document.getElementById("error-block").innerHTML=`<span id="success" style="font-weight:bold">No error</span>`;
+            }
+            catch(err){
+                 document.getElementById("error-block").innerHTML=`<span id="error" style="font-weight:bold">Type Error:The number datatype has no string method operation</span>`;
+            }
+        }
+
+        function tryCatch(){
+            try{
+               let num="cdac";
+                num.toUpperCase(); //type error;
+                 document.getElementById("finally").innerHTML=`<span id="success" style="font-weight:bold">No error</span>`;
+            }
+            catch(err){
+                 document.getElementById("error-block").innerHTML=`<span id="error" style="font-weight:bold">Type Error:The number datatype has no string method operation</span>`;
+            }finally{
+                document.getElementById("error-block").innerHTML=`<span  style="font-weight:bold; color:blue">This is Finally Block</span>`
+            }
+        }
+
+        function customError(){
+            try{
+
+                throw new Error("This is a Custom error");
+            }catch(error){
+                 document.getElementById("error-block").innerHTML=`<span id="error" style="font-weight:bold">Custom error: ${error.message}</span>`;
+            }
+        }
+    </script>
+    
+</body>
+</html>

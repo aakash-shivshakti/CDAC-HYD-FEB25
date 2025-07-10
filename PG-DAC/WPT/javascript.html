@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript</title>
+</head>
+<body>
+    <h1>JAVASCRIPT FUNDAMENTALS</h1>
+    <script>
+        console.log("WELCOME");
+        document.write("welcome");
+
+        // DATATYPES
+
+        // ways of declaring variables
+        // VAR, CONST, LET
+
+        var variable1 = 100; //integer 100 - updating value is accepted
+        //globally recognized variable means it functional scope
+        const variable2="string1";  // string -this datatypes makes the variables final one couldnt edit or update the value
+        //it is blocked scope
+        let varibale3="string3";  //string - updating value is accepted
+        //blocked scoped
+
+        //javascript dynamically typed programming language
+        //string variable_name =""; statistically typed language
+
+        //string
+        //number
+        //number-floating value -decimal value
+        //boolean-true or false
+        //null
+        //object
+        //array
+
+        let string = "my name";
+        let value = 10;
+        let decValue = 99.00;
+        let flag= true;
+        let noValue="";
+        let empty;
+        let colors = ["red", "green", "blue"]; 
+        let person={
+            name:"arya",
+            age:20,
+            address:"nagpur"
+        };
+
+        document.write(typeof(colors)); //object
+        console.log(typeof(string)); //string
+        console.log(typeof(value));  //number
+        console.log(typeof(decValue));  //number
+        console.log(typeof(flag)); //bool
+        console.log(typeof(noValue)); // null
+        console.log(typeof(empty)); // undefined
+        console.log(typeof(person)); // object
+
+        let add = 10 + 20;
+        let sub = 20 - 10;
+        let mul = 1*4;
+        let division = 10/5;
+        let modulus = 10%5;
+        let power = 2**2;
+
+        console.log(add);
+        console.log(sub);
+        console.log(mul);
+        console.log(division);
+        console.log(modulus);
+        console.log(power);
+ console.log(add--); // a= a-1
+      
+        let addd=3
+        console.log("INCREMENTAL");
+        console.log(addd++); //a= a+1  print addd -> addd+1 = 3+1
+        console.log(++addd);  // 3+1 and print the updated value
+       
+        let val1 = 10;
+        let val2="10";
+        let val3=20;
+
+        let val4=50;
+
+        console.log(val1==val2); //true
+        console.log(val1===val2); //false
+        console.log(val1<val3); // true
+        console.log(val1>val3); // false
+        console.log(val1!=val3); // true
+        console.log(val1!==val3); // true 
+
+      console.log((val1<val2)&&(val4<val1));// false
+      console.log((val1<val3)||(val4<val1));// true
+
+    //CONDITIONAL STATEMENTS - accepting value based upon the true conditions
+
+    // if(),if(){}else{}, if(){}else if(){} else{}, switch(){case studies},while(),do-while()
+      if(val1<val3){
+            console.log("Val1 is smaller than val3", val1, val3);  //same-line as a output
+        }
+
+        if(val1>val3){
+            console.log("Val1 is smaller than val3"); // output will be empty
+        }
+
+
+        if(val1>val3){
+            console.log("Val1 is smaller than val3"); // output will be "ERROR"
+        }else{
+            console.log("ERROR");
+        }
+
+        if(val1>val3){
+           console.log("Val1 is greater than val3", val3);
+        }else if(val1<val3){
+            console.log("Val1 is smaller than val3", val1); //output will be this line
+        }else{
+            console.log("ERROR");
+        }
+
+        let option="[monday]";
+        switch(option){
+            case "monday":console.log("Case 1 statemnet");
+                   break;
+            case 2:console.log("case 2 statemnet"); //output will be this line
+                  break;
+            case 3:console.log("case 3 statemnet");
+                  break;
+                  default:console.log("default statment"); //*****
+        }
+
+
+        // Looping Statements
+        for(let i=0;i<5;i++){
+            console.log("forloopstatement",i); 
+        }
+   
+        let i =0;
+        while(i<5){
+            console.log("whileloop",i); //0,1,2,3,4
+            i++;
+        }
+
+        let j=10;
+        do{
+            console.log("dowhile",j); //10,9,8,7,6,5
+            j--;         
+        }while(j>=5)
+
+
+        // Arrays ---- it is an homogenous collection of element in arrays is as object
+        let arrays=[1,2,3,4,5];
+        
+
+        console.log(arrays[3]); //4
+        // console.log(array2[1]);  //"hello"
+
+        let myself={
+            name:"name1",
+            age:20,
+            gender:"male",
+            fruits:["kiwi","oranges"],
+            graduated: false,
+        }
+
+
+        console.log(myself.name);
+        console.log(myself.age);
+        console.log(myself.fruits[1]);
+        console.log(myself.graduated);
+
+        for(const key in myself){
+            console.log(key,":",myself[key]);
+        }
+
+        for(let i=0;i<arrays.length;i++){
+            console.log(arrays[i]);
+        }
+
+        console.log("------------")
+
+        for(const i of arrays){
+            console.log(arrays[i-1]); //1 initializing 0
+        }
+
+         let  array2=["kiwi","oranges","avacado"];
+         let arrayy=array2.slice(1,3);
+          for(const i of arrayy){
+            console.log("zzzzz",i); //1 initializing 0
+        }
+    console.log("------------")
+        // how add item array
+        // array2.push("apple"); 
+        //  for(let i=0;i<array2.length;i++){
+        //     console.log(array2[i]); //output ["kiwi","orange","apple"]
+        // }
+        // array2.pop(); 
+
+        // for(let i=0;i<array2.length;i++){
+        //     console.log(array2[i]); //output ["kiwi","orange"]
+        // }
+
+        array2.unshift("apple"); //add element in 0th index
+          for(let i=0;i<array2.length;i++){
+            console.log(array2[i]); 
+        }
+
+        console.log("------------")
+        array2.shift();  //remove element from 0th index
+
+         for(let i=0;i<array2.length;i++){
+            console.log(array2[i]); 
+        }
+
+        console.log(array2.includes("apple")); //false
+        console.log(array2.indexOf("kiwi")); //0
+        console.log(array2.indexOf("apple")); //exception
+        
+        
+        //ARRAYS METHODS
+        //PUSH,POP,SHIFT, UNSHIFT, INCLUDES, INDEXOF, LENGTH
+
+        // FUNCTIONS
+        //BASIC FUNCTIONAL DECLATION
+    console.log("------------ ------------ ------------ ------------ ------------")
+        function addition(){
+            var z=10;
+            var x=20;
+            console.log(z+x);
+        }
+    console.log("------------ ------------ ------------ ------------ ------------")
+
+        addition();
+
+        // console.log(z); //error
+
+
+        console.log("------------ ------------ ------------ ------------ ------------")
+        // FUNCTION EXPRESSSION and arrow function
+      const aditionTwo=(t,s)=>{
+        console.log(t+s);
+      }
+      console.log("------------ ------------ ------------ ------------ ------------")
+
+    //   const aditionTwo =(t,s)=> console.log(t+s);
+
+   aditionTwo(10,20);
+
+console.log("------------ ------------ ------------ ------------ ------------");
+   const expression = function(value1,value2){
+    return (value1<value2);
+   }
+ console.log("------------ ------------ ------------ ------------------------");
+  console.log( expression(10,20));
+
+
+//   ASSIGMENT
+// write a function to implememt looping statement -- print a pattern of right-angle triangle pattern;
+//  implement function to get area of a shapes-circle, rectangle or triangle;
+//  ALONG THE BOOSTRAP ASSIGNMENTS
+
+console.log("------------ ------------ ------------ ------------------------");
+
+let digits = [1,2,3,4,5];
+for(let digit of digits){
+    console.log("RAWDATA",digit); 
+}
+console.log("------------ ------------ ------------ ------------------------");
+// let mappedData = digits.map(num=>num*2); //will return new array or existing array
+// for(let data of mappedData){
+//     console.log("MAPDATE",data); //[2,4,6,8,10]
+// }
+
+console.log("------------let digits = [1,2,3,4,5]; ------------ ------------ ------------------------");
+// let filteredData = digits.filter(data=>data%2==0);
+// let filteredData = digits.filter(data=>data%2==0);
+// //  for(let data of filteredData){
+// //     console.log("filteredData",data); //expected output [2,4] will return array or single value => new array
+// // }
+// for(let i=0;i<filteredData.length;i++){
+//     console.log(filteredData[i]);
+// }
+
+console.log("------------let digits = [1,2,3,4,5]; ------------ ------------ ------------------------");
+
+let reduced = digits.reduce((total,num)=>total+num,0); //return a single value -expected output 15
+
+console.log("REDUCED", reduced);
+
+console.log("--------SLICE-----------");
+
+let fruitData =["apple","orange","kiwi"];
+// for(let data of fruitData){
+//     console.log("FRUITTT",data);
+// }
+// let slitData = fruitData.slice(1,3); //it will return single value or array=>array
+
+// for(let data of slitData){
+//     console.log("SLITFRUITT",data);
+// }
+
+
+for(let data of fruitData){
+    console.log("SPLICEDATA",data);
+}
+console.log("------SPLICE  ---------");
+console.log("------let fruitData =[apple,orange,kiwi];---------");
+
+let splicedData = fruitData.splice( 0, 2,"banana"); //["apple","banana","avacode,"kiwi"]
+for(let data of splicedData){
+    console.log("SPLICEDATA",splicedData); //[banana,kiwi];
+}
+
+for(let data of fruitData){
+    console.log("UPDATED FRUITS",data);
+}
+
+// MAP,FILTER,REDUCE, SPLICE, SLICE
+
+// STRING METHODS
+
+let oneway = "";
+let twoway='';
+let thirdway=``;
+console.log("------STRING METHODS  ---------");
+let sentence="My name is strange";
+
+console.log(sentence.toUpperCase()); //MY NAME IS STRANGE
+console.log(sentence.toLocaleLowerCase())//my name is strange
+console.log(sentence.substring(3,8));//name (-6)|(8,3)=>(3,8)
+console.log(sentence.slice(11)); //strange (-6)|(8,3)=>""
+console.log(sentence.charAt(10));  //empty
+console.log(sentence.indexOf("strange")); //13
+console.log(sentence.includes("nothing")); //false
+console.log(sentence.endsWith("name")); //false
+
+// EXPECTIONA KEY DIFFERENCE
+console.log(sentence.slice(-6));
+console.log(sentence.slice(8,3));
+console.log(sentence.substring(-6));
+console.log(sentence.substring(8,3));
+
+// MATH METHODSS
+let number= 10.4;
+console.log(Math.PI); //pi=>3.146...
+console.log(Math.sqrt(4)); //2
+console.log(Math.max(1,3,4,5));//5
+console.log(Math.min(2,4,1,6));//1
+console.log(Math.ceil(number)); //11
+console.log(Math.floor(number));//10
+console.log(Math.round(number)); //10
+console.log(Math.random());// some random number
+console.log(Math.pow(2,3)); //8 2*2*2
+
+
+// NUMBER METHODSS---------------------------------------------------
+console.log(Number.MAX_VALUE); //max number exist
+console.log(Number.MIN_VALUE); //least number exist
+console.log(Number.isInteger("stirng")); //false
+console.log(Number.isFinite(1/0)); //false
+
+let digit=104.5678;
+
+console.log(digit.toFixed(2));  //it will return fixed no digits after the decimal
+console.log(digit.toPrecision(4)); //it will return the no of total digits
+console.log(digit.toString());  //it will return the string of the datatype number
+console.log(digit.toString(2)); //it will return the binary format the passed value
+console.log(digit.toString(16)); //it  return the hexa format of passed value
+
+// DATE FORMATE_---------------------------------------------------
+
+let date = new Date();  //expected o/p 22-05-1025 11:33...GMT..
+console.log(date);
+console.log(date.getFullYear()); //2025
+console.log(date.getMonth()); //4 indexing 0-11
+console.log(date.getDate()); //22
+console.log(date.getDay())//thursday
+console.log(date.getHours());  //current hour
+console.log(date.getMinutes()); //current minutes
+console.log(date.getSeconds()); //current seconds
+console.log(date.getMilliseconds());// current milliseconds
+
+let setDate = new Date();
+setDate.setFullYear(2024);
+setDate.setMonth(0);
+setDate.setDate(10);
+setDate.setHours(12);
+setDate.setMinutes(0);
+setDate.setSeconds(10);
+
+console.log(setDate);
+
+console.log(date.toDateString()); //this return the complete date string
+console.log(date.toLocaleDateString()); //this return the complete standard date
+console.log(date.toISOString()); //this returs ISO formatted date
+console.log(date.toLocaleTimeString()); //retuen only time of standard
+
+let somearray = [1,2,3,4,5];
+
+let updatedSome = somearray.some(num=>num%2==0); //this will return bool value of the passed condition of either one of the elemnet set true if the data from backend if one of data is was we wnat expected is present
+let updatedEvery= somearray.every(num=>num>10); //it return bool value of either one of the item is met the condition
+
+
+let string1=" spacing of it ";
+console.log(string1.trim()); //return without whitespaces
+
+
+console.log(updatedSome);
+console.log(updatedEvery);
+
+let personObject={
+    name:"person_name",
+    age:20,
+    likings:["sports","chores","choir","music"],
+    greet:function(){
+        return `${this.name} hello`;
+    }
+}
+
+console.log(personObject);
+console.log(personObject.name);//Dot Notation
+console.log(personObject["name"]) //BracketNotation
+console.log(personObject.greet());
+console.log(personObject.likings[1]);
+
+personObject.name="arya";
+console.log(personObject);
+
+personObject.likings.push("drawing");
+console.log(personObject);
+
+// object PROTOTYPING---------------------------------------------
+console.log("OBJECTS",personObject);
+
+// personObject.prototype.address= new personObject();
+// personObject.address="hyderbad";
+
+let personObjectTwo= Object.create(personObject);
+personObjectTwo.address="Hyderbad";
+
+console.log(personObjectTwo.address);
+
+
+// Object-oriented Programming-------------------------------------
+class greet{  //data -member => variables
+    constructor(name,place){
+        this.name = name;
+        this.place = place;
+    }
+    greet(){ //method => function
+        return `Welcome ${this.name} from ${this.place}`;
+    }
+}
+
+let welcoming = new greet("anu","hyderbad");
+
+console.log(welcoming.greet()); //welome .........o/p
+
+//4 priciple=> Encapsulation, Abstraction, Polymorphims, Inheritance
+
+// Inheritance-------------------------------------------
+
+class Employee extends greet{
+    constructor(name,place,role){
+        super(name,place);  //this.name=name
+                //this.place=place      // it will have copy of a data inherite all the data member of parent class
+        this.role=role;
+    }
+
+    greet(){  //ovveriding method of parent class
+        return `${super.greet()} is an ${this.role}`;
+    }
+}
+
+let employeeObject = new Employee("arya","hyderbad","developer");
+
+console.log(employeeObject.greet());
+console.log(employeeObject.name);
+console.log(employeeObject.place);
+console.log(employeeObject.role);
+
+// POLYMORPHISM------------------------------
+class animal{
+    sound(){
+        console.log("animal sound");
+    }
+}
+
+class dog{
+    sound(){
+        console.log("bark");
+    }
+}
+
+class cat{
+    sound(){
+        console.log("meow");
+    }
+}
+
+function sounding (animal){
+  animal.sound();
+}
+let animalSound = new animal();
+sounding(animalSound);
+
+let dogSound = new dog();
+sounding(dogSound);
+
+let catSound = new cat()
+sounding(catSound);
+
+
+// Encapsulation------------------------------------------
+
+class encapsulate{
+   #balance=50;  // private variable
+
+   deposit(amount){
+        if(amount>0){
+            this.#balance+=amount; // balance=balance+amount;
+            return `deposited ${amount} to the bank: now balance is ${this.#balance}`;
+        }else{
+            return "Invalid amount Entered";
+        }
+   }
+
+   withDraw(amount){
+    if(amount>0 && amount < this.#balance ){
+        this.#balance-=amount;  //balance = balance-amount
+        return `Amount withdrawed ${amount} from bank : now balance is ${this.#balance}`
+    }else{
+        return `Insuffient balance or Invalid amount entered`;
+    }
+   }
+
+   balance(){
+    return `Your balance is ${this.#balance}`;
+   }
+
+}
+
+let bank = new encapsulate();
+console.log(bank.deposit(1000));
+console.log(bank.withDraw(100));
+console.log(bank.balance());
+// console.log(bank.#balance); //Error
+console.log(bank.withDraw(1500)); //o/p will be return by else
+
+// Abstarction------------------------------------------------------
+// No in-built Abstraction so we need to simulate the abstarction
+//ABSTRCTAION In-BUILD SO SIMULATE IT LIKE BELOW
+// class abstraction{
+//     constructor(constructor){
+//         throw new Error("Constructor cannot be initiation");
+//     }
+
+//     greet(){
+//         throw new Error("You cannot invoke method");
+//     }
+// }
+
+// class implementing extends abstraction{
+//      constructor(person){
+//         super();
+//         this.person= person;
+//      }
+
+// greet(){
+//     return `implmeneting parent method overring`
+// }
+
+// }
+//  ABSTRACTION IMPLEMNTATION-- of area--------------------------------------------------------------
+
+class abstracting{
+    constructor(){
+       if(this.constructor==abstracting){
+         throw new Error("CANNOT INITIATE THE CONSTRUTOR");
+       }
+    }
+
+    calculateArea(){
+        throw new Error("CANNOT INVOKE EMPTY METHOD");
+    }
+}
+
+class circle extends abstracting{
+    constructor(radius){
+        super();
+        this.radius=radius;
+    }
+
+    // Implementing parent method body
+    calculateArea(){
+        let area = Math.PI*this.radius*this.radius; 
+        // let area = Math.PI*radius**2;
+        return area;
+    }
+}
+
+class rect extends abstracting{
+    constructor(width,length){
+        super();
+        this.width=width;
+        this.length=length;
+    }
+
+    calculateArea(){
+        let area=this.width*this.length;
+        return area;
+    }
+}
+
+let circleArea = new circle(2);
+console.log(circleArea.calculateArea());
+
+let rectArea = new rect(2,4);
+console.log(rectArea.calculateArea());
+
+// let abstract = new abstracting();//Error
+
+
+
+
+
+
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        #demo-dom{
+            margin: 20px 0;
+            padding: 10px;
+            background-color: rgb(240, 240, 240);
+        }
+
+        button{
+            background-color: rgb(83, 83, 246);
+            padding: 10px;
+            color: white;
+            font-weight: bold;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover{
+            background-color: rgb(1, 1, 1);
+         
+        }
+        #click{
+            margin: 5px ;
+        }
+
+        #error{
+        color: red;
+        font-size: 14px;
+        }
+
+        #success{
+        color: rgb(43, 251, 2);
+        font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <h1>DOM IMPLEMENTATIONS</h1>
+    <p>DOM - Document Object Model - purpose is for Manipulation</p>
+
+
+    <div id="demo-dom">
+        <p id="para-id">This is a paragraph tag</p>
+        <button  onclick="changeText()">Change text</button>
+        <button onclick="changeStyle()">change style</button>
+        <button onclick="addElement()">add paragraph</button>
+    </div>
+
+<!-- EVENTS ---------------------------------------------------------------------------->
+
+    <div  id="demo-dom">
+        <button onmouseover="mouseHover(this)" onmouseout="mouseUnHover(this)">Hover Me</button> 
+        <button onclick="changenow()">Click Me</button>
+        <div id="click"></div>
+    </div>
+
+<!-- FORMS----------------------------------------------------------------------------- -->
+    <div id="demo-dom">
+        <form id="form-data">
+            <h1>Form Area</h1>
+            <br>
+            <lable for="name">Name:</lable>
+            <input type="text" name="Name" id="name" required>
+            <br><br>
+            <label for="email">Email:</label>
+            <input type="email" name="Email" id="email" required>
+            <br><br>
+            <label for="age">Age:</label>
+            <input type="number" name="Age" id="age"min="1" max="120" >
+            <br><br>
+            <button onclick="validate()" type="button">Validate form</button>
+            <button onclick="getFormData()"  type="button">Get form Data</button>
+            <button type="reset">Reset</button>
+            <button type="submit">Submit</button>
+
+        </form>
+           <div id="output-form-error"></div>
+    </div>
+
+    <div id="demo-dom">
+        <label for="data">Data:</label>
+        <input type="text" id="data" required name="data">
+        <br>
+        <br>
+        <button onclick="emailPattern()">checkEmailValidity</button>
+        <button onclick="strongPattern()">checkStrongPassword</button>
+
+        <br>
+        <div id="form-error"></div>
+    </div>
+
+    
+    <script>
+        function changeText(){
+          let para = document.getElementById("para-id");
+          para.innerHTML="THIS TEXT IS CHANGED";
+        }
+
+        function changeStyle(){
+            let para=document.getElementById("para-id");
+            para.style.color="rgb(30,213,68)";
+            para.style.fontWeight="bold";
+        }
+
+        function addElement(){
+            let target= document.getElementById("demo-dom");
+            let newP= document.createElement("p");
+            newP.innerHTML=`<p style="font-weight:bold;color:rgb(30,213,68)">This is newly added paragragh</p>`;
+            target.appendChild(newP);    
+        }
+
+        function mouseHover(element){
+            element.style.backgroundColor="rgb(30,213,68)";
+        }
+
+         function mouseUnHover(element){
+            element.style.backgroundColor="";
+        }
+
+        function changenow(){
+            let click = document.getElementById("click");
+            let dateNow = new Date();
+            let stdDate=dateNow.toLocaleDateString();
+            let stdTime=dateNow.toLocaleTimeString();
+            click.innerHTML=`You clicked a button at ${stdDate} ${stdTime}`;
+        }
+
+        function validate(){
+            let form = document.getElementById("form-data");
+            let output = document.getElementById("output-form-error");
+
+            if (form.checkValidity()) {
+          output.innerHTML = '<span id="success">Form Data is valid!</span>';
+        } else {
+          output.innerHTML =
+            '<span id="error">Please fill all data</span>';
+        }
+
+        }
+
+        function getFormData(){
+                let form =document.getElementById("form-data");
+                let formDatas = new FormData(form);
+                let output = document.getElementById("output-form-error");
+
+                let result = "<h3>Form Data</h3>";
+                for(let [key,value] of formDatas.entries()){
+                    result+=`${key}:${value}<br>`;
+                }
+                onPageLoad(false);
+                console.log(result);
+               output.innerHTML=result;
+        }
+
+        function emailPattern(){
+            let email = document.getElementById("data").value;
+            let pattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            const isValidPattern= pattern.test(email);
+
+            if(isValidPattern){
+                document.getElementById("form-error").innerHTML=`<span id="success">YOUR REGEX :Email is Valid</span>`;
+            }else{
+                document.getElementById("form-error").innerHTML=`<span id="error">YOUR REGEX :Enter Correct Email format</span>`;
+            }
+        }
+
+          function strongPattern(){
+            let password = document.getElementById("data").value;
+            let pattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d@$!%*?&]{8,}$/;
+            const isValidPattern= pattern.test(password);
+
+            if(isValidPattern){
+                document.getElementById("form-error").innerHTML=`<span id="success">YOUR REGEX :Your Password Strong</span>`;
+            }else{
+                document.getElementById("form-error").innerHTML=`<span id="error">YOUR REGEX :Your Password  is Weak</span>`;
+            }
+        }
+
+    </script>
+</body>
+</html>
