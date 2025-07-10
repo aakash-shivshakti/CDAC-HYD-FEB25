@@ -1,0 +1,14 @@
+1. Handle `NO_DATA_FOUND` Exception:
+   Write a stored procedure to find an employee's salary based on their `emp_id`. If the employee does not exist, handle the exception with a custom message "Employee not found."
+
+2. Handle `DIVISION_BY_ZERO` Exception:
+   Write a stored procedure to calculate the average salary of employees in a specific department. If no employees are found in the department, handle the exception with a custom message "No employees in department."
+
+3. Handle `FOREIGN_KEY_VIOLATION` Exception:
+   Write a stored procedure to delete an employee by their `emp_id`. If the employee has any dependent records in the `employee` table, handle the exception and return "Cannot delete employee with dependent records."
+
+4. Handle `DUPLICATE_KEY` Exception:
+   Write a stored procedure to insert a new employee into the `employee` table. If the employee already exists (based on `emp_id`), handle the exception and return "Employee already exists."
+
+5. Handle `INVALID_DATE` Exception:
+   Write a stored procedure that inserts a department into the `department` table. If the department name is invalid (e.g., NULL or empty), handle the exception and return "Invalid department name."

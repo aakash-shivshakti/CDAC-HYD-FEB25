@@ -1,0 +1,15 @@
+1. Insert new employees into another table based on salary - Procedure
+Problem: Insert employees whose salary is less than 20000 into a new table low_salary_employees.
+
+2. Delete employees from HR department - Procedure
+Problem: Delete employees whose department is HR.
+
+3. Update employee salary - Procedure
+Problem: Increase salary by 10% for employees in the Marketing department.
+
+4. Get total employees earning more than 15000 - Function 
+Problem: Return the count of employees with salary > 15000.
+
+5. Get the total salary of Finance department employees - Function 
+Problem: Return the sum of salaries of employees in the Finance department.
+

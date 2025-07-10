@@ -1,0 +1,15 @@
+Problems:
+Procedure 1 (Update - LOOP):
+Create a procedure IncreaseSalaryByDept that increases the salary by 10% for employees in a given department using a LOOP, starting from emp_id = 101 and incrementing.
+
+Procedure 2 (Insert - WHILE):
+Create a procedure InsertDummyEmployees that inserts 5 new dummy employees into a given department with a fixed salary using a WHILE loop, emp_id starting from the next available ID.
+
+Procedure 3 (Delete - REPEAT):
+Create a procedure DeleteLowSalaryEmployees that deletes employees whose salary is less than a given threshold using a REPEAT loop, starting from emp_id = 101 and incrementing.
+
+Function 1 (Total Salary - LOOP):
+Create a function TotalSalaryByDept that returns the total salary of employees in a given department using a LOOP, starting from emp_id = 101 and incrementing.
+
+Function 2 (Count High Earners - WHILE):
+Create a function CountHighEarners that counts employees earning more than a given salary using a WHILE loop, starting from emp_id = 101 and incrementing.

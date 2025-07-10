@@ -1,0 +1,103 @@
+// 1. Create a collection "students"
+db.createCollection("students");
+
+// 2. Insert some data
+db.students.insertMany([
+    { name: "John", age: 18, grade: "A", subjects: ["Math", "Science"] },
+    { name: "Jane", age: 19, grade: "B", subjects: ["English", "Math"] },
+    { name: "Alice", age: 17, grade: "A", subjects: ["History", "Science"] },
+    { name: "Bob", age: 20, grade: "C", subjects: ["Math", "History"] }
+]);
+
+// 3. CRUD operations
+
+// Create
+db.students.insertOne({ name: "Charlie", age: 22, grade: "B", subjects: ["Physics", "Math"] });
+
+// Read
+db.students.find({ grade: "A" });
+
+// Update
+db.students.updateOne({ name: "Bob" }, { $set: { grade: "A" } });
+
+// Delete
+db.students.deleteOne({ name: "Alice" });
+
+// 4. Operator examples
+
+// $eq: Values are equal
+db.students.find({ age: { $eq: 18 } });
+
+// $ne: Values are not equal
+db.students.find({ age: { $ne: 18 } });
+
+// $gt: Value is greater than another value
+db.students.find({ age: { $gt: 18 } });
+
+// $gte: Value is greater than or equal to another value
+db.students.find({ age: { $gte: 18 } });
+
+// $lt: Value is less than another value
+db.students.find({ age: { $lt: 19 } });
+
+// $lte: Value is less than or equal to another value
+db.students.find({ age: { $lte: 19 } });
+
+// $in: Value is matched within an array
+db.students.find({ subjects: { $in: ["Math"] } });
+
+// $and: Returns documents where both queries match
+db.students.find({ $and: [{ grade: "A" }, { age: { $gte: 18 } }] });
+
+// $or: Returns documents where either query matches
+db.students.find({ $or: [{ grade: "B" }, { age: { $lt: 19 } }] });
+
+// $nor: Returns documents where both queries fail to match
+db.students.find({ $nor: [{ grade: "C" }, { age: 20 }] });
+
+// $not: Returns documents where the query does not match
+db.students.find({ age: { $not: { $gt: 18 } } });
+
+// $regex: Allows the use of regular expressions
+db.students.find({ name: { $regex: /^J/ } });
+
+// $where: Uses a JavaScript expression to match documents
+db.students.find({ $where: "this.age > 18" });
+
+// $currentDate: Sets the field value to the current date
+db.students.updateOne({ name: "John" }, { $currentDate: { lastUpdated: true } });
+
+// $inc: Increments the field value
+db.students.updateOne({ name: "Jane" }, { $inc: { age: 1 } });
+
+// $rename: Renames the field
+db.students.updateOne({ name: "Bob" }, { $rename: { grade: "classGrade" } });
+
+// $set: Sets the value of a field
+db.students.updateOne({ name: "Charlie" }, { $set: { grade: "A" } });
+
+// $unset: Removes the field from the document
+db.students.updateOne({ name: "John" }, { $unset: { subjects: "" } });
+
+// $addToSet: Adds distinct elements to an array
+db.students.updateOne({ name: "Bob" }, { $addToSet: { subjects: "English" } });
+
+// $pop: Removes the first or last element of an array
+db.students.updateOne({ name: "Jane" }, { $pop: { subjects: -1 } });
+
+// $pull: Removes all elements from an array that match the query
+db.students.updateOne({ name: "John" }, { $pull: { subjects: "Math" } });
+
+// $push: Adds an element to an array
+db.students.updateOne({ name: "Charlie" }, { $push: { subjects: "Chemistry" } });
+
+// Upsert example: Update the 'grade' of the student with 'name' = "John" to "A".
+// If no such student exists, insert a new document with the given 'name' and 'grade'.
+db.students.updateOne(
+    { name: "John" }, // Query filter
+    { 
+        $set: { grade: "A" }, // Update operation
+    },
+    { upsert: true } // Option to insert if the document does not exist
+);
+

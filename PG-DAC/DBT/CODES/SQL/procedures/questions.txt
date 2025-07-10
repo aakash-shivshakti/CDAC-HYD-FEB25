@@ -1,0 +1,14 @@
+Q1: AddBook (Create/Insert with IN parameters)
+Write a procedure AddBook that inserts a book title and author ID into the Books table using IN parameters.
+
+Q2: GetAuthorByBook (Read/Select with JOIN and OUT parameter)
+Write a procedure GetAuthorByBook that accepts a book_id as IN and returns the author's name using an OUT parameter, using a JOIN between Books and Authors.
+
+Q3: UpdateBookTitle (Update with INOUT parameter)
+Write a procedure UpdateBookTitle that accepts a book_id as IN, and a new title as INOUT (updates the title and returns the length of the new title).
+
+Q4: DeleteBookById (Delete with IN parameter)
+Write a procedure DeleteBookById that deletes a book from the Books table based on an IN parameter book_id.
+
+Q5: ListBooksByAuthor (Complex Read with IN parameter)
+Write a procedure ListBooksByAuthor that accepts author_name as an IN parameter and lists all books related to that author using a JOIN.

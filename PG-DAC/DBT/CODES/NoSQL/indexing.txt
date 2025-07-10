@@ -1,0 +1,23 @@
+// Create an index on the 'name' field (ascending order by default)
+db.students.createIndex({ name: 1 });
+
+// Create an index on the 'age' field (descending order)
+db.students.createIndex({ age: -1 });
+
+
+Compound indexing creates an index on multiple fields, 
+which helps to improve query performance when querying based on multiple fields.
+
+// Create a compound index on the 'name' and 'age' fields
+db.students.createIndex({ name: 1, age: -1 });
+
+// Create a compound index on the 'grade' and 'subjects' fields
+db.students.createIndex({ grade: 1, subjects: 1 });
+
+
+Compound Index:
+The compound index allows queries that filter or sort on multiple fields to be faster. 
+In the example, we created an index on the combination of name (ascending) and age (descending). 
+This index will be useful for queries like
+
+db.students.find({ name: "John", age: { $gte: 18 } });

@@ -1,0 +1,15 @@
+// 1. Sort by a Single Field
+db.students.find().sort({ age: 1 });  // Sort by 'age' in ascending order (default)
+db.students.find().sort({ age: -1 }); // Sort by 'age' in descending order
+
+// 2. Sort by Multiple Fields
+db.students.find().sort({ grade: 1, age: -1 }); // Sort by 'grade' in ascending, then 'age' in descending
+
+// 3. Sort with Limit
+db.students.find().sort({ age: 1 }).limit(5); // Sort by 'age' in ascending and limit to 5 documents
+
+// 4. Sort with Projection
+db.students.find({}, { name: 1, age: 1 }).sort({ name: 1 }); // Sort by 'name' in ascending and project 'name' and 'age'
+
+// 5. Sort with Skip and Limit
+db.students.find().sort({ name: 1 }).skip(2).limit(3); // Sort by 'name' in ascending, skip first 2, limit to next 3

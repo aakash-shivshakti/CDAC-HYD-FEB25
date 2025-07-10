@@ -1,0 +1,18 @@
+1. BEFORE INSERT Trigger on orders
+Problem: Prevent placing an order if the quantity exceeds the available stock.
+
+2. AFTER INSERT Trigger on orders
+Problem: After an order is placed, update the stock by deducting the ordered quantity.
+
+3. BEFORE UPDATE Trigger on books
+Problem: Prevent setting the stock of a book to a negative value.
+
+4. AFTER UPDATE Trigger on books
+Problem: Log the price change whenever a book's price is updated.
+
+5. BEFORE DELETE Trigger on books
+Problem: Prevent deleting books that still have remaining stock.
+
+6. AFTER DELETE Trigger on books
+Problem: Log details about deleted books, such as their ID and title.
+

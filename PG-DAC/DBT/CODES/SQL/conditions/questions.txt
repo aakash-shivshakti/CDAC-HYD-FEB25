@@ -1,0 +1,12 @@
+Problem 1: If an employee's salary is less than 20000, increase it by 10%.
+
+Problem 2: If an employee belongs to department 1, set salary bonus to 5000, else set it to 3000.
+
+Problem 3: If salary < 15000 → Label as Low Salary, elseif salary between 15000 and 30000 → Medium Salary, else High Salary.
+
+Problem 4: Based on department ID, return HR / Finance / Engineering / Other Department.
+
+Problem 5: Given a salary, 
+    < 10000 → Increase by 20%, 
+    10000-20000 → Increase by 10%, 
+    > 20000 → Increase by 5%.
